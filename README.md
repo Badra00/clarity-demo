@@ -1,4 +1,8 @@
-# ClarityDemo
+# Clarity Demo
+
+You can see this project live [here](https://amellnik.github.io/clarity-demo/).  Clarity is still working on a few important features, but looks pretty good at the moment.  Try looking at the demo page on a mobile browser.  
+
+Readme details from angular-cli follow.
 
 This project was generated with [angular-cli](https://github.com/angular/angular-cli) version 1.0.0-beta.19-3.
 
