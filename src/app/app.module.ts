@@ -7,21 +7,21 @@ import { ClarityModule } from 'clarity-angular';
 import { HomeComponent } from './home/home.component';
 
 import { AppComponent } from './app.component';
-import { TablesComponent } from './tables/tables.component';
 import { InputsComponent } from './inputs/inputs.component';
+import { RadiosComponent } from './radios/radios.component';
 
 const routing = RouterModule.forRoot([
   { path: '', component: HomeComponent },
-  { path: 'tables', component: TablesComponent },
-  { path: 'inputs', component: InputsComponent }
+  { path: 'inputs', component: InputsComponent },
+  { path: 'radios', component: RadiosComponent }
 ]);
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    TablesComponent,
-    InputsComponent
+    InputsComponent,
+    RadiosComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,29 @@
+<h1>Radio groups</h1>
+<p>Suppose we have some sort of data structure like:</p>
+<pre>
+  <code ng-non-bindable clr-code-highlight="language-javascript">
+    {{dataCode}}
+  </code>
+</pre>
+
+<p>and we want to let users select one of the turtles with a radio group.  The number of items in the data might change, so we need to 1) dynamically generate a radio group and 2) bind to the current selection.</p>
+
+<p>So far, I haven't been able to get 1) working fully.  The following displays correctly but items can't be selected:</p>
+
+<pre>
+  <code ng-non-bindable clr-code-highlight="language-html">
+    {{radioCode}}
+  </code>
+</pre>
+
+<form>
+  <section class="form-block">
+    <div class="form-group">
+      <label>It's not working:</label>
+      <div class="radio" *ngFor="let t of data.Turtles">
+        <input type="radio" name="gridRadios" id="{{t.Name}}">
+        <label [attr.for]="t.name">{{t.Name}} (age {{t.Age}})</label>
+      </div>
+    </div>
+  </section>
+</form>
