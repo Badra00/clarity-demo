@@ -22,6 +22,9 @@ export class RadiosComponent implements OnInit {
     ]
   };
 
+  // Make the first turtle active by default -- this doesn't select it in the radio group however.  
+  private activeTurtle = Object.assign({}, this.data.Turtles[0]);
+
   private dataCode = `{
     Source: "Turtle DB",
     Turtles: [
@@ -35,13 +38,18 @@ export class RadiosComponent implements OnInit {
   private radioCode = `<form>
     <section class="form-block">
       <div class="form-group">
-        <label>It's not working:</label>
+        <label>Pick a turtle:</label>
         <div class="radio" *ngFor="let t of data.Turtles">
-          <input type="radio" name="gridRadios" id="{{t.Name}}">
-          <label [attr.for]="t.name">{{t.Name}} (age {{t.Age}})</label>
+          <input type="radio" name="gridRadios" id="{{t.Name}}" [(ngModel)]="activeTurtle" (ngModelChange)="log()" [value]="t">
+          <label [attr.for]="t.Name">{{t.Name}} (age {{t.Age}})</label>
         </div>
       </div>
     </section>
-  </form>`;
+  </form>
+  <p>Active item: {{activeTurtle.Name}}</p>`;
+
+  log() {
+    console.log(this.activeTurtle);
+  }
 
 }

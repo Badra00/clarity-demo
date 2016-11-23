@@ -8,7 +8,7 @@
 
 <p>and we want to let users select one of the turtles with a radio group.  The number of items in the data might change, so we need to 1) dynamically generate a radio group and 2) bind to the current selection.</p>
 
-<p>So far, I haven't been able to get 1) working fully.  The following displays correctly but items can't be selected:</p>
+<p>This took me a while to figure out, but a working example which binds to the selected object is below.  It's also possible to bind only to the Name property or similar.  The only minor annoyance is that providing an initial value doesn't seem to work when binding to the object.</p>
 
 <pre>
   <code ng-non-bindable clr-code-highlight="language-html">
@@ -19,11 +19,12 @@
 <form>
   <section class="form-block">
     <div class="form-group">
-      <label>It's not working:</label>
+      <label>Pick a turtle:</label>
       <div class="radio" *ngFor="let t of data.Turtles">
-        <input type="radio" name="gridRadios" id="{{t.Name}}">
-        <label [attr.for]="t.name">{{t.Name}} (age {{t.Age}})</label>
+        <input type="radio" name="gridRadios" id="{{t.Name}}" [(ngModel)]="activeTurtle" (ngModelChange)="log()" [value]="t">
+        <label [attr.for]="t.Name">{{t.Name}} (age {{t.Age}})</label>
       </div>
     </div>
   </section>
 </form>
+<p>Active item: {{activeTurtle.Name}}</p>
